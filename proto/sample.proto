@@ -1,0 +1,16 @@
+syntax = "proto3";
+package sample;
+
+service Greet {
+    rpc UnaryGreet (RequestGreet) returns (ResponseGreet);
+    rpc ServerStreamGreet (RequestGreet) returns (stream ResponseGreet);
+    rpc BidirectionalStreamGreet (stream RequestGreet) returns (stream ResponseGreet);
+}
+
+message RequestGreet {
+    string message = 1;
+}
+
+message ResponseGreet {
+    string message = 1;
+}
