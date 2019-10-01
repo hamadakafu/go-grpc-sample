@@ -11,7 +11,7 @@ steps:
   - ls -la
   - echo $ENV
   - echo $ENV
-  - echo $ENV
+  - env
 
 trigger:
   branch:
