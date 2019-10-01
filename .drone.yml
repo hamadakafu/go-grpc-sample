@@ -9,3 +9,8 @@ steps:
   - echo "hoge"
   - pwd
   - ls -la
+  - echo $ENV
+
+trigger:
+  branch:
+  - master
