@@ -3,18 +3,6 @@ type: docker
 name: default
 
 steps:
-- name: greeting and sleep
-  image: golang:1.12
-  commands:
-  - echo "hello"
-  - sleep 20
-
-- name: env and sleep
-  image: golang:1.12
-  commands:
-  - env
-  - sleep 20
-
 - name: slack
   image: plugins/slack
   settings:
@@ -34,6 +22,13 @@ steps:
     tags: latest
     debug: true
     registry: docker.io
+  volumes:
+  - name: docker
+    path: /root/.docker
+
+volumes:
+- name: docker
+  temp: {}
 
 trigger:
   branch:
