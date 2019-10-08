@@ -29,9 +29,15 @@ steps:
       from_secret: docker_username
     password:
       from_secret: docker_password
-    repo: docker.io/kafuhamada/sample
+    repo: kafuhamada/sample
     tags: latest
-    registry: docker.io
+  volumes:
+  - name: docker
+    path: /root/.docker
+
+volumes:
+- name: docker
+  temp: {}
 
 trigger:
   branch:
