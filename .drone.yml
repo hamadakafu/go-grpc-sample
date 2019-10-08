@@ -15,6 +15,12 @@ steps:
   - env
   - sleep 20
 
+- name: slack
+  image: plugins/slack
+  settings:
+    webhook: https://hooks.slack.com/services/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
+    channel: general
+
 trigger:
   branch:
     - master
