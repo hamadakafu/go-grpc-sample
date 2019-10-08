@@ -30,8 +30,9 @@ steps:
       from_secret: docker_username
     password:
       from_secret: docker_password
-    repo: kafuhamada/sample
+    repo: docker.io/kafuhamada/sample
     tags: latest
+    registry: docker.io
 
 trigger:
   branch:
