@@ -3,18 +3,20 @@ type: docker
 name: default
 
 steps:
-- name: greeting
+- name: greeting and sleep
   image: golang:1.12
   commands:
-  - echo "hoge"
-  - pwd
-  - ls -la
-  - echo $ENV
-  - echo $ENV
+  - echo "hello"
+  - sleep 20
+
+- name: env and sleep
+  image: golang:1.12
+  commands:
   - env
+  - sleep 20
 
 trigger:
   branch:
-    - master
+    - develop
   event:
     - pull_request
