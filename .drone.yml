@@ -22,6 +22,16 @@ steps:
       from_secret: slack_webhook
     channel: general
 
+- name: docker-build
+  image: plugins/docker
+  settings:
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
+    repo: kafuhamada/sample
+    tags: latest
+
 trigger:
   branch:
     - master
