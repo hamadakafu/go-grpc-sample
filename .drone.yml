@@ -18,7 +18,8 @@ steps:
 - name: slack
   image: plugins/slack
   settings:
-    webhook: https://hooks.slack.com/services/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
+    webhook:
+      from_secret: slack_webhook
     channel: general
 
 trigger:

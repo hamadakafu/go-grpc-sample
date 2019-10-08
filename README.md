@@ -1,4 +1,5 @@
 # gRPC
+[![Build Status](https://hoge.serveo.net/api/badges/hamadakafu/go-grpc-sample/status.svg)](https://hoge.serveo.net/hamadakafu/go-grpc-sample)
 
 ```go
 ./protoc-gen.sh
