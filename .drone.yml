@@ -24,6 +24,7 @@ steps:
 
 - name: docker-build
   image: plugins/docker:18.09
+  privileged: true
   settings:
     username:
       from_secret: docker_username
