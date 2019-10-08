@@ -12,3 +12,7 @@ steps:
   - echo $ENV
   - echo $ENV
   - env
+
+trigger:
+  branch:
+  - develop
