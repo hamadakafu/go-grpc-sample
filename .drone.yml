@@ -3,7 +3,7 @@ type: docker
 name: default
 
 steps:
-- name: slack
+- name: slack-before
   image: plugins/slack
   settings:
     webhook:
@@ -33,7 +33,7 @@ steps:
     json_key:
       from_secret: google_credentials
 
-- name: slack
+- name: slack-after
   image: plugins/slack
   settings:
     webhook:
