@@ -12,7 +12,6 @@ steps:
 
 - name: docker-build
   image: plugins/docker:18.09
-  privileged: true
   settings:
     username:
       from_secret: docker_username
@@ -24,11 +23,12 @@ steps:
     registry: docker.io
   volumes:
   - name: docker
-    path: /root/.docker
+    path: /var/run/docker.sock
 
 volumes:
 - name: docker
-  temp: {}
+  host:
+    path: /var/run/docker.sock
 
 trigger:
   branch:
