@@ -5,7 +5,6 @@ name: default
 steps:
 - name: slack
   image: plugins/slack
-  privileged: true
   settings:
     webhook:
       from_secret: slack_webhook
@@ -29,6 +28,7 @@ steps:
     registry: us.gcr.io
     repo: ipu-project/foo/bar
     tags: latest
+    debug: true
     json_key:
       from_secret: google_credentials
 
