@@ -20,7 +20,6 @@ steps:
     registry: docker.io
     repo: kafuhamada/sample
     tags: latest
-    debug: true
 
 - name: publish
   image: plugins/gcr
@@ -28,7 +27,6 @@ steps:
     registry: us.gcr.io
     repo: ipu-project/foo/bar
     tags: latest
-    debug: true
     json_key:
       from_secret: google_credentials
 
