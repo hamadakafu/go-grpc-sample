@@ -10,17 +10,18 @@ steps:
       from_secret: slack_webhook
     channel: general
 
-    # - name: docker-build
-    #   image: plugins/docker:18.09
-    #   privileged: true
-    #   settings:
-    #     username:
-    #       from_secret: docker_username
-    #     password:
-    #       from_secret: docker_password
-    #     repo: kafuhamada/sample
-    #     tags: latest
-    #     debug: true
+- name: docker-build
+  image: plugins/docker:18.09
+  privileged: true
+  settings:
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
+    registry: docker.io
+    repo: kafuhamada/sample
+    tags: latest
+    debug: true
 
 - name: publish
   image: plugins/gcr
@@ -31,6 +32,13 @@ steps:
     debug: true
     json_key:
       from_secret: google_credentials
+
+- name: slack
+  image: plugins/slack
+  settings:
+    webhook:
+      from_secret: slack_webhook
+    channel: general
 
 trigger:
   branch:
