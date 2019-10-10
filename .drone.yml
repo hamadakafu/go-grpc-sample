@@ -3,15 +3,39 @@ type: docker
 name: default
 
 steps:
-- name: greeting
-  image: golang:1.12
-  commands:
-  - echo "hoge"
-  - pwd
-  - ls -la
-  - echo $ENV
-  - echo $ENV
-  - env
+- name: slack-before
+  image: plugins/slack
+  settings:
+    webhook:
+      from_secret: slack_webhook
+    channel: general
+
+- name: docker-build
+  image: plugins/docker:18.09
+  settings:
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
+    registry: docker.io
+    repo: kafuhamada/sample
+    tags: latest
+
+- name: publish
+  image: plugins/gcr
+  settings:
+    registry: us.gcr.io
+    repo: ipu-project/foo/bar
+    tags: latest
+    json_key:
+      from_secret: google_credentials
+
+- name: slack-after
+  image: plugins/slack
+  settings:
+    webhook:
+      from_secret: slack_webhook
+    channel: general
 
 trigger:
   branch:
